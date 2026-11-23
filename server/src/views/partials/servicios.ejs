@@ -1,0 +1,29 @@
+<section class="section section--alt" id="servicios">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <p class="eyebrow"><span class="eyebrow__line"></span>02 — Servicios</p>
+      <h2 class="section-title">Servicios y precios</h2>
+      <% if (site.servicios.intro) { %>
+        <p class="section-lead"><%- marcarDato(site.servicios.intro) %></p>
+      <% } %>
+    </div>
+
+    <div class="services-grid">
+      <% site.servicios.items.forEach((servicio, index) => { %>
+        <article class="service-card reveal" style="--delay: <%= (index % 3) * 0.08 %>s">
+          <span class="service-card__index"><%= String(index + 1).padStart(2, "0") %></span>
+          <h3 class="service-card__title"><%- marcarDato(servicio.nombre) %></h3>
+          <p class="service-card__desc"><%- marcarDato(servicio.descripcion) %></p>
+          <div class="service-card__meta">
+            <span class="service-card__price"><%- marcarDato(servicio.precio) %></span>
+            <span class="service-card__duration"><%- marcarDato(servicio.duracion) %></span>
+          </div>
+        </article>
+      <% }) %>
+    </div>
+
+    <% if (site.servicios.nota) { %>
+      <p class="section-note reveal"><%- marcarDato(site.servicios.nota) %></p>
+    <% } %>
+  </div>
+</section>

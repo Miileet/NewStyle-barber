@@ -1,0 +1,32 @@
+<section class="section section--alt" id="equipo">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <p class="eyebrow"><span class="eyebrow__line"></span>04 — Equipo</p>
+      <h2 class="section-title"><%= site.equipo.titulo %></h2>
+      <% if (site.equipo.intro) { %>
+        <p class="section-lead"><%- marcarDato(site.equipo.intro) %></p>
+      <% } %>
+    </div>
+
+    <div class="members">
+      <% site.equipo.integrantes.forEach((persona, index) => { %>
+        <article class="member-card reveal" style="--delay: <%= index * 0.1 %>s">
+          <div class="member-card__photo">
+            <% if (persona.foto) { %>
+              <img src="<%= persona.foto %>" alt="<%= persona.nombre %>" loading="lazy" />
+            <% } else { %>
+              <span class="member-card__initial"><%= persona.nombre.charAt(0) %></span>
+              <span class="member-card__pending">Foto pendiente</span>
+            <% } %>
+          </div>
+          <div class="member-card__body">
+            <h3 class="member-card__name"><%= persona.nombre %></h3>
+            <% if (persona.detalle) { %>
+              <p class="member-card__role"><%= persona.detalle %></p>
+            <% } %>
+          </div>
+        </article>
+      <% }) %>
+    </div>
+  </div>
+</section>

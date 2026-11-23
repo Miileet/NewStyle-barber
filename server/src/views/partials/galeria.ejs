@@ -1,0 +1,23 @@
+<section class="section" id="galeria">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <p class="eyebrow"><span class="eyebrow__line"></span>05 — Galería</p>
+      <h2 class="section-title">Nuestros trabajos</h2>
+      <% if (site.galeria.intro) { %>
+        <p class="section-lead"><%- marcarDato(site.galeria.intro) %></p>
+      <% } %>
+    </div>
+
+    <div class="gallery">
+      <% site.galeria.items.forEach((foto, index) => { %>
+        <figure
+          class="gallery__item reveal<%= index === 0 ? " gallery__item--big" : "" %>"
+          style="--delay: <%= (index % 3) * 0.07 %>s"
+        >
+          <img src="<%= foto.src %>" alt="<%= foto.alt %>" loading="lazy" />
+          <figcaption class="gallery__caption"><%= foto.alt %></figcaption>
+        </figure>
+      <% }) %>
+    </div>
+  </div>
+</section>

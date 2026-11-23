@@ -1,0 +1,42 @@
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <a class="brand" href="#inicio">
+        <svg class="brand__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="6" cy="18" r="2.6" />
+          <circle cx="18" cy="18" r="2.6" />
+          <line x1="7.8" y1="16.2" x2="19" y2="4" />
+          <line x1="16.2" y1="16.2" x2="5" y2="4" />
+        </svg>
+        <span class="brand__name"><%= site.nombre %></span>
+      </a>
+      <p class="footer__tag"><%- marcarDato(site.eslogan) %></p>
+    </div>
+
+    <nav class="footer__nav" aria-label="Navegación del pie de página">
+      <% site.navegacion.forEach((item) => { %>
+        <a class="footer__link" href="<%= item.url %>"><%= item.etiqueta %></a>
+      <% }) %>
+    </nav>
+
+    <div class="footer__social">
+      <% const redes = [
+        { nombre: "Instagram", url: site.contacto.instagram },
+        { nombre: "Facebook", url: site.contacto.facebook },
+      ]; %>
+      <% const redesConLink = redes.filter((red) => esUrl(red.url)); %>
+      <% if (redesConLink.length > 0) { %>
+        <% redesConLink.forEach((red) => { %>
+          <a class="footer__social-link" href="<%= red.url %>" target="_blank" rel="noopener noreferrer"><%= red.nombre %></a>
+        <% }) %>
+      <% } else { %>
+        <span class="footer__social-pending is-pending">[Redes sociales pendientes]</span>
+      <% } %>
+    </div>
+  </div>
+
+  <div class="container footer__bottom">
+    <p>&copy; <%= anio %> <%= site.nombre %>. Todos los derechos reservados.</p>
+    <p class="footer__pending">Datos del sitio pendientes de completar</p>
+  </div>
+</footer>

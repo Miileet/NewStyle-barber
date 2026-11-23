@@ -1,0 +1,37 @@
+<section class="section" id="horarios">
+  <div class="container">
+    <div class="schedule">
+      <div class="schedule__list reveal">
+        <div class="section-head">
+          <p class="eyebrow"><span class="eyebrow__line"></span>03 — Horarios</p>
+          <h2 class="section-title">Horarios de atención</h2>
+        </div>
+
+        <ul class="schedule__items">
+          <% site.horarios.dias.forEach((item) => { %>
+            <li class="schedule__row<%= item.cerrado ? " schedule__row--closed" : "" %>">
+              <span class="schedule__day"><%= item.dia %></span>
+              <span class="schedule__dots" aria-hidden="true"></span>
+              <span class="schedule__hours"><%= item.horario %></span>
+            </li>
+          <% }) %>
+        </ul>
+      </div>
+
+      <aside class="schedule__aside reveal" style="--delay: .15s">
+        <% if (site.horarios.resumen) { %>
+          <p class="schedule__note-label">Atención</p>
+          <p class="schedule__summary"><%= site.horarios.resumen.horario %></p>
+          <p class="schedule__note"><%= site.horarios.resumen.dias %></p>
+          <p class="schedule__note schedule__note--muted"><%= site.horarios.resumen.cierre %></p>
+        <% } %>
+
+        <% if (site.horarios.nota) { %>
+          <p class="schedule__note"><%- marcarDato(site.horarios.nota) %></p>
+        <% } %>
+
+        <a class="btn btn--light" href="#contacto">Solicitar turno</a>
+      </aside>
+    </div>
+  </div>
+</section>

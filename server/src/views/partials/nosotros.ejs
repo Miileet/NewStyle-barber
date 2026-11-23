@@ -1,0 +1,42 @@
+<section class="section" id="nosotros">
+  <div class="container">
+    <div class="about">
+      <div class="about__body reveal">
+        <div class="section-head">
+          <p class="eyebrow"><span class="eyebrow__line"></span>01 — Nosotros</p>
+          <h2 class="section-title"><%= site.nosotros.titulo %></h2>
+        </div>
+
+        <% site.nosotros.textos.forEach((texto) => { %>
+          <p class="about__text"><%- marcarDato(texto) %></p>
+        <% }) %>
+      </div>
+
+      <div class="about__gallery reveal" style="--delay: .15s">
+        <figure class="about__figure about__figure--main">
+          <img
+            src="<%= site.nosotros.fotos[0].src %>"
+            alt="<%= site.nosotros.fotos[0].alt %>"
+            loading="lazy"
+          />
+        </figure>
+        <figure class="about__figure about__figure--sub">
+          <img
+            src="<%= site.nosotros.fotos[1].src %>"
+            alt="<%= site.nosotros.fotos[1].alt %>"
+            loading="lazy"
+          />
+        </figure>
+      </div>
+    </div>
+
+    <ul class="features">
+      <% site.caracteristicas.forEach((item, index) => { %>
+        <li class="feature reveal" style="--delay: <%= (index % 4) * 0.06 %>s">
+          <%- include("../partials/icono", { nombre: item.icono }) %>
+          <span class="feature__texto"><%= item.texto %></span>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+</section>

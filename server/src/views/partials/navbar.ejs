@@ -1,0 +1,30 @@
+<header class="navbar" id="navbar">
+  <div class="container navbar__inner">
+    <a class="brand" href="#inicio">
+      <svg class="brand__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="6" cy="18" r="2.6" />
+        <circle cx="18" cy="18" r="2.6" />
+        <line x1="7.8" y1="16.2" x2="19" y2="4" />
+        <line x1="16.2" y1="16.2" x2="5" y2="4" />
+      </svg>
+      <span class="brand__name"><%= site.nombre %></span>
+    </a>
+
+    <nav class="nav" id="nav-menu" aria-label="Navegación principal">
+      <ul class="nav__list">
+        <% site.navegacion.forEach((item) => { %>
+          <li>
+            <a class="nav__link" href="<%= item.url %>"><%= item.etiqueta %></a>
+          </li>
+        <% }) %>
+      </ul>
+      <a class="btn btn--sm btn--light nav__cta" href="#contacto">Solicitar turno</a>
+    </nav>
+
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>

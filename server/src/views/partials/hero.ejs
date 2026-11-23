@@ -1,0 +1,27 @@
+<section class="hero" id="inicio">
+  <div class="hero__media" aria-hidden="true">
+    <img src="<%= site.hero.imagen %>" alt="" />
+  </div>
+  <div class="hero__overlay" aria-hidden="true"></div>
+
+  <div class="container hero__content">
+    <p class="eyebrow hero__eyebrow reveal">
+      <span class="eyebrow__line"></span>
+      Barbería
+    </p>
+
+    <h1 class="hero__title reveal" style="--delay: .1s"><%- marcarDato(site.nombre) %></h1>
+
+    <p class="hero__lead reveal" style="--delay: .2s"><%- marcarDato(site.eslogan) %></p>
+
+    <div class="hero__actions reveal" style="--delay: .3s">
+      <a class="btn btn--light" href="#servicios">Ver servicios</a>
+      <a class="btn btn--ghost" href="#contacto">Solicitar turno</a>
+    </div>
+  </div>
+
+  <a class="hero__scroll" href="#nosotros" aria-label="Descubrir la sección Nosotros">
+    <span class="hero__scroll-label">Descubrir</span>
+    <span class="hero__scroll-line" aria-hidden="true"></span>
+  </a>
+</section>
